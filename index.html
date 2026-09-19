@@ -302,24 +302,19 @@
         function playVideoPage() {
             goToPage(3);
             const video = document.getElementById('myVideo');
-            const bgMusic = document.getElementById('bg-music');
             
-            // Pause BGM while video plays
-            bgMusic.pause(); 
+            // Play the video without pausing the background music
             video.play();
 
-            // When video ends, show buttons and resume music
+            // When video ends, show buttons
             video.onended = function() {
                 document.getElementById('video-controls').style.display = 'flex';
-                bgMusic.play();
             };
         }
 
         function replayVideo() {
             document.getElementById('video-controls').style.display = 'none';
             const video = document.getElementById('myVideo');
-            const bgMusic = document.getElementById('bg-music');
-            bgMusic.pause();
             video.currentTime = 0;
             video.play();
         }
